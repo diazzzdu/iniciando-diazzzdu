@@ -1,0 +1,32 @@
+@model IEnumerable<BibliotecaApp.Models.Livro>
+@{
+    ViewData["Title"] = "Nosso Acervo";
+}
+
+<h2>Nosso Acervo</h2>
+
+<div class="row">
+    @foreach (var livro in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">@livro.Titulo</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">@livro.Autor</h6>
+                    <p class="card-text">
+                        Gênero: @livro.Genero<br />
+                        Ano: @livro.AnoPublicacao<br />
+                        @if (livro.Disponivel)
+                        {
+                            <span class="badge bg-success">Disponível</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary">Indisponível</span>
+                        }
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+</div>

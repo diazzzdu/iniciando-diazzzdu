@@ -1,0 +1,46 @@
+@model IEnumerable<BibliotecaApp.Models.Livro>
+@{
+    ViewData["Title"] = "Gerenciar Livros";
+}
+
+<h2>Gerenciar Livros</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">+ Novo Livro</a>
+</p>
+
+<form method="get" class="d-flex mb-3" style="max-width:400px;">
+    <input type="text" name="busca" value="@ViewBag.Busca" class="form-control me-2" placeholder="Buscar por título ou autor" />
+    <button type="submit" class="btn btn-outline-primary">Buscar</button>
+</form>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Gênero</th>
+            <th>Ano</th>
+            <th>Quantidade</th>
+            <th>Disponível</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var livro in Model)
+        {
+            <tr>
+                <td>@livro.Titulo</td>
+                <td>@livro.Autor</td>
+                <td>@livro.Genero</td>
+                <td>@livro.AnoPublicacao</td>
+                <td>@livro.Quantidade</td>
+                <td>@(livro.Disponivel ? "Sim" : "Não")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@livro.Id" class="btn btn-sm btn-primary">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@livro.Id" class="btn btn-sm btn-danger">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

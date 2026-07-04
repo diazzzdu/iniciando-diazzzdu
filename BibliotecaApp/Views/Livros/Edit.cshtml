@@ -1,0 +1,42 @@
+@model BibliotecaApp.Models.Livro
+@{
+    ViewData["Title"] = "Editar Livro";
+}
+
+<h2>Editar Livro</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="mb-3">
+        <label class="form-label">Título</label>
+        <input asp-for="Titulo" class="form-control" />
+        <span asp-validation-for="Titulo" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Autor</label>
+        <input asp-for="Autor" class="form-control" />
+        <span asp-validation-for="Autor" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Gênero</label>
+        <input asp-for="Genero" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Ano de Publicação</label>
+        <input asp-for="AnoPublicacao" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Editora</label>
+        <input asp-for="Editora" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Quantidade</label>
+        <input asp-for="Quantidade" class="form-control" />
+    </div>
+    <div class="mb-3 form-check">
+        <input asp-for="Disponivel" class="form-check-input" />
+        <label class="form-check-label">Disponível</label>
+    </div>
+    <button type="submit" class="btn btn-success">Salvar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

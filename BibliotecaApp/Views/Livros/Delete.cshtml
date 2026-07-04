@@ -1,0 +1,27 @@
+@model BibliotecaApp.Models.Livro
+@{
+    ViewData["Title"] = "Excluir Livro";
+}
+
+<h2>Excluir Livro</h2>
+
+<div class="alert alert-warning">
+    Tem certeza que deseja excluir este livro?
+</div>
+
+<dl class="row">
+    <dt class="col-sm-2">Título</dt>
+    <dd class="col-sm-10">@Model.Titulo</dd>
+
+    <dt class="col-sm-2">Autor</dt>
+    <dd class="col-sm-10">@Model.Autor</dd>
+
+    <dt class="col-sm-2">Gênero</dt>
+    <dd class="col-sm-10">@Model.Genero</dd>
+</dl>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Confirmar Exclusão</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
